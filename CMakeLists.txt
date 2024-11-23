@@ -129,11 +129,11 @@ if (WIN32)
 		add_definitions("/wd4250") # disable "inherits via dominance' warning (used in trace_embree.cc)
 
 		# RF BEGIN
-        # get the number of logical cores for parallel build
-        cmake_host_system_information(RESULT LOGICAL_CORES QUERY NUMBER_OF_LOGICAL_CORES)
-        math(EXPR COMPILE_CORES "${LOGICAL_CORES} - 1")
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP${COMPILE_CORES}")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP${COMPILE_CORES}")
+		# get the number of logical cores for parallel build
+		cmake_host_system_information(RESULT LOGICAL_CORES QUERY NUMBER_OF_LOGICAL_CORES)
+		math(EXPR COMPILE_CORES "${LOGICAL_CORES} - 1")
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP${COMPILE_CORES}")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP${COMPILE_CORES}")
 		# RF END
 
 	endif (MSVC)
