@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "ericw-tools-msvc",
+            "generator": "Visual Studio 17 2022",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/build/${presetName}",            
+            "cacheVariables": {
+                "embree_DIR" : "C:/Dev/ericw-tools-deps/embree-3.12.1.x64.vc14.windows",
+                "TBB_DIR" : "C:/Dev/ericw-tools-deps/tbb-2020.2-win/tbb/cmake",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug-MSVC",
+            "configuration": "Debug",
+            "configurePreset": "ericw-tools-msvc"
+        },
+        {
+            "name": "RelWithDebInfo-MSVC",
+            "configuration": "RelWithDebInfo",
+            "configurePreset": "ericw-tools-msvc"
+        },
+        {
+            "name": "Release-MSVC",
+            "configuration": "Release",
+            "configurePreset": "ericw-tools-msvc"
+        }
+    ]
+}
